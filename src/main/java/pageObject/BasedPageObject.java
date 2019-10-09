@@ -13,9 +13,9 @@ public abstract class BasedPageObject {
         driver.get(url);
     }
 
-    public LoginPage goToLoginPage() {
-        driver.get("https://accounts.google.com/signin");
-        return new LoginPage(driver);
+    public LogInPage goToLoginPage() {
+        driver.get("https://accounts.google.com/servicelogin");
+        return new LogInPage(driver);
     }
 
     public MainPage goToMainPage() {

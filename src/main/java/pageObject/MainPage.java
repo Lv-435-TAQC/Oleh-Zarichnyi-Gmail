@@ -10,6 +10,7 @@ public class MainPage extends BasedPageObject {
     private MenuPage menuPage;
     private SearchPage searchPage;
     private LettersPage lettersPage;
+    private UserInfoPage userInfoPage;
 
     public MainPage(WebDriver driver) {
         super(driver);
@@ -38,6 +39,16 @@ public class MainPage extends BasedPageObject {
                 .setRecipientEmailFilterField(recipient)
                 .setThemeOfEmailFilterField(theme)
                 .pressSearchByFilterButton();
+        return this;
+    }
+    public MainPage logOut(){
+        searchPage = new SearchPage(this.driver);
+        userInfoPage = new UserInfoPage(this.driver);
+        searchPage
+                .clickUserInfoButton();
+        userInfoPage
+                .clickLogOutButton();
+
         return this;
     }
 }
